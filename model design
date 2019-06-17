@@ -1,0 +1,269 @@
+model design
+
+class Order
+{
+	private Integer orderId;
+
+	private Customer customer;
+
+    private List<Item> items;
+
+	private double totalAmount;
+
+
+	// setter and getters
+
+}
+
+
+class Item
+{
+	private String name;
+	private Integer qty;
+	private double price;
+
+	// setters and getters
+}
+
+class Customer
+{
+	private String phoneNumber;
+	private String firstName;
+	private String lastName;
+
+
+	// setters and getters
+}
+
+
+
+class Inventory
+{
+	private String id;
+	private String name;
+	private Integer qtyAvailable;
+	private double priceEachItem;
+
+	// setters and getters
+}
+
+
+
+// controller design
+
+gmail type of requirement 
+
+
+synchronous -- no -- asynchnornous -- batch... 
+
+All the orders -- pagination
+GET : https://mycompany.com/8080/orders?page=1&size=30
+
+[
+	{
+		
+	  "orderId":"uuid",
+	  "customer":{
+	     "phoneNumber":"9734620073",
+	     "firstName":"Ashok",
+	     "lastName":"Sarvepalli"
+	  },
+	  items:[
+	    {
+	      "name":"Macbook",
+	      "qty":1
+	      "price":2500
+	    },
+	    {
+	     "name":"keyboard",
+	     "qty":2
+	     "price":100
+	    }
+	  ],
+	  "totalAmount":2700
+	},
+
+	{
+		
+	  "orderId":1001,
+	  "customer":{
+	     "phoneNumber":"9734620073",
+	     "firstName":"Ashok",
+	     "lastName":"Sarvepalli"
+	  },
+	  items:[
+	    {
+	      "name":"Macbook",
+	      "qty":1
+	      "price":2500
+	    },
+	    {
+	     "name":"keyboard",
+	     "qty":2
+	     "price":100
+	    }
+	  ],
+	  "totalAmount":2700
+	}
+]
+
+
+
+
+Retrive for particular order
+GET : https://mycompany.com/8080/orders/1001
+
+{
+	
+  "orderId":1001,
+  "customer":{
+     "phoneNumber":"9734620073",
+     "firstName":"Ashok",
+     "lastName":"Sarvepalli"
+  },
+  items:[
+    {
+      "name":"Macbook",
+      "qty":1
+      "price":2500
+    },
+    {
+     "name":"keyboard",
+     "qty":2
+     "price":100
+    }
+  ],
+  "totalAmount":2700
+}
+
+
+Retrive for items in a particular order
+GET : https://mycompany.com/8080/orders/1001/items
+[
+    {
+      "name":"Macbook",
+      "qty":1
+      "price":2500
+    },
+    {
+     "name":"keyboard",
+     "qty":2
+     "price":100
+    }
+]
+
+
+GET : https://mycompany.com/8080/customers/9734620073
+
+{
+     "phoneNumber":"9734620073",
+     "firstName":"Ashok",
+     "lastName":"Sarvepalli"
+}
+
+with query param and pagination (query param (fname, lname))
+GET : https://mycompany.com/8080/customers
+
+
+
+POST: https://mycompany.com/8080/orders
+
+Request Body:
+
+	{
+	  "customer":{
+	     "phoneNumber":"9734620073",
+	     "firstName":"Ashok",
+	     "lastName":"Sarvepalli"
+	  },
+	  items:[
+	    {
+	      "name":"Macbook",
+	      "qty":1
+	      "price":2500
+	    },
+	    {
+	     "name":"keyboard",
+	     "qty":2
+	     "price":100
+	    }
+	  ],
+	  "totalAmount":2700
+	}
+
+Response: (201 -Created)
+
+{
+	
+  "orderId":1001,
+  "customer":{
+     "phoneNumber":"9734620073",
+     "firstName":"Ashok",
+     "lastName":"Sarvepalli"
+  },
+  items:[
+    {
+      "name":"Macbook",
+      "qty":1
+      "price":2500
+    },
+    {
+     "name":"keyboard",
+     "qty":2
+     "price":100
+    }
+  ],
+  "totalAmount":2700,
+  "links" : "https://mycompany.com/8080/orders/1001"
+}
+
+PUT - create a resource or update an resource
+
+PUT: https://mycompany.com/8080/orders/1001
+
+200
+
+{
+	  "customer":{
+	     "phoneNumber":"9734620073",
+	     "firstName":"Ashok",
+	     "lastName":"Sarvepalli"
+	  },
+	  items:[
+	    {
+	      "name":"Macbook",
+	      "qty":1
+	      "price":2500
+	    },
+	    {
+	     "name":"keyboard",
+	     "qty":2
+	     "price":100
+	    }
+	  ],
+	  "totalAmount":2700
+}
+
+
+PATCH : https://mycompany.com/8080/orders/1001
+{
+	
+ items:[
+	    {
+	     "name":"mouse",
+	     "qty":2
+	     "price":100
+	    }
+	  ],
+
+
+
+}
+
+
+
+
+
+
+
+
