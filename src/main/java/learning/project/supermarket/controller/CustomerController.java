@@ -3,6 +3,7 @@ package learning.project.supermarket.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,7 +31,7 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(method =  RequestMethod.POST, consumes = { "application/xml", "application/json" })
-	public Customer onBoardCustomer(Customer customer) {
+	public Customer onBoardCustomer(@RequestBody Customer customer) {
 		return service.saveCustomer(customer);
 	}
 	
