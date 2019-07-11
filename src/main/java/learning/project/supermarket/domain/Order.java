@@ -2,6 +2,8 @@ package learning.project.supermarket.domain;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 public class Order {
 
 	private String orderId;

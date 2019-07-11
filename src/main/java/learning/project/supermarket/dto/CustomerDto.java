@@ -6,8 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-@Entity(name = "CUSTOMER")
+@Entity
+@Table(name="CUSTOMER")
 public class CustomerDto {
 
 	@Column(name="PHONE_NUMBER")
